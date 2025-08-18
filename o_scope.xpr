@@ -194,16 +194,13 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
       <Filter Type="Constrs"/>
-      <File Path="$PSRCDIR/constrs_1/new/pin_configure.xdc">
+      <File Path="$PSRCDIR/constrs_1/pin_configure.xdc">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.srcs/constrs_1/new/pin_configure.xdc"/>
-          <Attr Name="ImportTime" Val="1750816911"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
       </File>
       <Config>
-        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/pin_configure.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
