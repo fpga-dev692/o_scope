@@ -80,8 +80,8 @@
 #########
 #C-files
 #########
-vitis_c/*.c
-vitis_c/*.h
+!vitis_c/*.c
+!vitis_c/*.h
 # !*.elf
 # !*.bmm
 # !*.xmp
