@@ -82,6 +82,7 @@
 #########
 !vitis_c/*.c
 !vitis_c/*.h
+!images/*
 # !*.elf
 # !*.bmm
 # !*.xmp

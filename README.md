@@ -10,7 +10,7 @@
 | **Designed Modules**| SPI Master, AXI-Stream Master, AXI-Lite Slave                        |
 
 ## System Architecture
-![System Archtecture](./images/system_architecture.png)
+![System Architecture](./images/system_architecture.png)
 
 ## Performance & Features
 - SPI Frequency dynamic control (Up to 20MHz)
