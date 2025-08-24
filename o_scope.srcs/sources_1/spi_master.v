@@ -15,8 +15,11 @@ module spi_master #(
     output reg sclk,
     output reg [PAYLOAD_WIDTH-1:0] o_data,
     output reg d_valid,
-    output reg header_error
+    output reg header_error,
+    output overclocked  // high when sclk freq. over 20MHz
     );
+
+    assign overclocked = (sclk_psc < 5);    // error status: sclk_psc must >= 6 (6 - 1)
 
     //
     localparam S_IDLE   = 2'b00;
@@ -26,7 +29,7 @@ module spi_master #(
 
     reg [S_PSC_WIDTH-1:0] sclk_cnt;
     reg sclk_n, sclk_p;
-    reg [S_PSC_WIDTH-1:0] r_sclk_psc;
+    reg [S_PSC_WIDTH-2:0] r_sclk_psc;
     reg load_config;
 
     reg [$clog2(DATA_WIDTH)-1:0] miso_cnt;
@@ -54,7 +57,7 @@ module spi_master #(
 
     always @(posedge clk) begin
         if(load_config)
-            r_sclk_psc <= (sclk_psc >> 1);
+            r_sclk_psc <= (sclk_psc >> 1) - 1;
     end
 
     always @(*) begin
@@ -141,8 +144,12 @@ module spi_master #(
                 else
                     o_data <= {o_data[PAYLOAD_WIDTH-2:0], miso};
                 //
-                if((miso_cnt == HEAD_WIDTH) && (zero_header != {HEAD_WIDTH{1'b0}}))
-                    header_error <= 1;
+                if(miso_cnt == HEAD_WIDTH) begin
+                    if(zero_header != {HEAD_WIDTH{1'b0}})
+                        header_error <= 1;
+                    else
+                        header_error <= 0;
+                end
             end
         end
     end

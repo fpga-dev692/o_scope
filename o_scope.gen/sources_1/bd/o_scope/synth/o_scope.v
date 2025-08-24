@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Mon Aug 18 10:23:21 2025
+//Date        : Thu Aug 21 10:14:44 2025
 //Host        : DESKTOP-50JA6HK running 64-bit major release  (build 9200)
 //Command     : generate_target o_scope.bd
 //Design      : o_scope
@@ -267,7 +267,7 @@ module m01_couplers_imp_1UZNVKU
   assign m01_couplers_to_m01_couplers_WVALID = S_AXI_wvalid;
 endmodule
 
-(* CORE_GENERATION_INFO = "o_scope,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=o_scope,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "o_scope.hwdef" *) 
+(* CORE_GENERATION_INFO = "o_scope,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=o_scope,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "o_scope.hwdef" *) 
 module o_scope
    (DDR_addr,
     DDR_ba,
@@ -291,7 +291,6 @@ module o_scope
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     cs,
-    led_err,
     miso,
     sclk);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
@@ -316,15 +315,16 @@ module o_scope
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
   output cs;
-  output led_err;
   input miso;
   output sclk;
 
-  wire [15:0]adc_controller_wrapp_0_m_axis_TDATA;
-  wire [1:0]adc_controller_wrapp_0_m_axis_TKEEP;
-  wire adc_controller_wrapp_0_m_axis_TLAST;
-  wire adc_controller_wrapp_0_m_axis_TREADY;
-  wire adc_controller_wrapp_0_m_axis_TVALID;
+  wire adc_controller_wrapp_1_cs;
+  wire [15:0]adc_controller_wrapp_1_m_axis_TDATA;
+  wire [1:0]adc_controller_wrapp_1_m_axis_TKEEP;
+  wire adc_controller_wrapp_1_m_axis_TLAST;
+  wire adc_controller_wrapp_1_m_axis_TREADY;
+  wire adc_controller_wrapp_1_m_axis_TVALID;
+  wire adc_controller_wrapp_1_sclk;
   wire [31:0]axi_dma_0_M_AXI_S2MM_AWADDR;
   wire [1:0]axi_dma_0_M_AXI_S2MM_AWBURST;
   wire [3:0]axi_dma_0_M_AXI_S2MM_AWCACHE;
@@ -360,10 +360,7 @@ module o_scope
   wire axi_mem_intercon_M00_AXI_WREADY;
   wire [7:0]axi_mem_intercon_M00_AXI_WSTRB;
   wire axi_mem_intercon_M00_AXI_WVALID;
-  wire axis4_master_0_cs;
-  wire axis4_master_0_led_err;
-  wire axis4_master_0_sclk;
-  wire miso_0_1;
+  wire miso_1;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -460,21 +457,19 @@ module o_scope
   wire ps7_0_axi_periph_M01_AXI_WVALID;
   wire [0:0]rst_ps7_0_50M_peripheral_aresetn;
 
-  assign cs = axis4_master_0_cs;
-  assign led_err = axis4_master_0_led_err;
-  assign miso_0_1 = miso;
-  assign sclk = axis4_master_0_sclk;
-  o_scope_adc_controller_wrapp_0_0 adc_controller_wrapp_0
-       (.cs(axis4_master_0_cs),
-        .led_err(axis4_master_0_led_err),
+  assign cs = adc_controller_wrapp_1_cs;
+  assign miso_1 = miso;
+  assign sclk = adc_controller_wrapp_1_sclk;
+  o_scope_adc_controller_wrapp_1_0 adc_controller_wrapp_1
+       (.cs(adc_controller_wrapp_1_cs),
         .m_axis_aclk(processing_system7_0_FCLK_CLK0),
         .m_axis_aresetn(rst_ps7_0_50M_peripheral_aresetn),
-        .m_axis_tdata(adc_controller_wrapp_0_m_axis_TDATA),
-        .m_axis_tkeep(adc_controller_wrapp_0_m_axis_TKEEP),
-        .m_axis_tlast(adc_controller_wrapp_0_m_axis_TLAST),
-        .m_axis_tready(adc_controller_wrapp_0_m_axis_TREADY),
-        .m_axis_tvalid(adc_controller_wrapp_0_m_axis_TVALID),
-        .miso(miso_0_1),
+        .m_axis_tdata(adc_controller_wrapp_1_m_axis_TDATA),
+        .m_axis_tkeep(adc_controller_wrapp_1_m_axis_TKEEP),
+        .m_axis_tlast(adc_controller_wrapp_1_m_axis_TLAST),
+        .m_axis_tready(adc_controller_wrapp_1_m_axis_TREADY),
+        .m_axis_tvalid(adc_controller_wrapp_1_m_axis_TVALID),
+        .miso(miso_1),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M01_AXI_ARADDR[2:0]),
         .s_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
@@ -494,7 +489,7 @@ module o_scope
         .s_axi_wready(ps7_0_axi_periph_M01_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M01_AXI_WVALID),
-        .sclk(axis4_master_0_sclk));
+        .sclk(adc_controller_wrapp_1_sclk));
   o_scope_axi_dma_0_0 axi_dma_0
        (.axi_resetn(rst_ps7_0_50M_peripheral_aresetn),
         .m_axi_s2mm_aclk(processing_system7_0_FCLK_CLK0),
@@ -532,11 +527,11 @@ module o_scope
         .s_axi_lite_wdata(ps7_0_axi_periph_M00_AXI_WDATA),
         .s_axi_lite_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s_axi_lite_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
-        .s_axis_s2mm_tdata(adc_controller_wrapp_0_m_axis_TDATA),
-        .s_axis_s2mm_tkeep(adc_controller_wrapp_0_m_axis_TKEEP),
-        .s_axis_s2mm_tlast(adc_controller_wrapp_0_m_axis_TLAST),
-        .s_axis_s2mm_tready(adc_controller_wrapp_0_m_axis_TREADY),
-        .s_axis_s2mm_tvalid(adc_controller_wrapp_0_m_axis_TVALID));
+        .s_axis_s2mm_tdata(adc_controller_wrapp_1_m_axis_TDATA),
+        .s_axis_s2mm_tkeep(adc_controller_wrapp_1_m_axis_TKEEP),
+        .s_axis_s2mm_tlast(adc_controller_wrapp_1_m_axis_TLAST),
+        .s_axis_s2mm_tready(adc_controller_wrapp_1_m_axis_TREADY),
+        .s_axis_s2mm_tvalid(adc_controller_wrapp_1_m_axis_TVALID));
   o_scope_axi_mem_intercon_0 axi_mem_intercon
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_ps7_0_50M_peripheral_aresetn),

@@ -44,7 +44,6 @@
     <Option Name="SimulatorGccVersionRiviera" Val="9.3.0"/>
     <Option Name="SimulatorGccVersionActiveHdl" Val="9.3.0"/>
     <Option Name="BoardPart" Val=""/>
-    <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
@@ -59,20 +58,20 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="197"/>
+    <Option Name="WTXSimLaunchSim" Val="204"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="12"/>
-    <Option Name="WTModelSimExportSim" Val="12"/>
-    <Option Name="WTQuestaExportSim" Val="12"/>
+    <Option Name="WTXSimExportSim" Val="16"/>
+    <Option Name="WTModelSimExportSim" Val="16"/>
+    <Option Name="WTQuestaExportSim" Val="16"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="12"/>
-    <Option Name="WTRivieraExportSim" Val="12"/>
-    <Option Name="WTActivehdlExportSim" Val="12"/>
+    <Option Name="WTVcsExportSim" Val="16"/>
+    <Option Name="WTRivieraExportSim" Val="16"/>
+    <Option Name="WTActivehdlExportSim" Val="16"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -90,49 +89,8 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/bd/o_scope/o_scope.bd">
+      <File Path="$PSRCDIR/sources_1/m_axis4_master.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.srcs/sources_1/bd/o_scope/o_scope.bd"/>
-          <Attr Name="ImportTime" Val="1755482947"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_processing_system7_0_0/o_scope_processing_system7_0_0.xci">
-          <Proxy FileSetName="o_scope_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_adc_controller_wrapp_0_0/o_scope_adc_controller_wrapp_0_0.xci">
-          <Proxy FileSetName="o_scope_adc_controller_wrapp_0_0"/>
-        </CompFileExtendedInfo>
-      </File>
-      <File Path="$PGENDIR/sources_1/bd/o_scope/hdl/o_scope_wrapper.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.gen/sources_1/bd/o_scope/hdl/o_scope_wrapper.v"/>
-          <Attr Name="ImportTime" Val="1755480201"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/bd_scope_v4/bd_scope_v4.bd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.srcs/sources_1/bd/bd_scope_v4/bd_scope_v4.bd"/>
-          <Attr Name="ImportTime" Val="1755482950"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-        <CompFileExtendedInfo CompFileName="bd_scope_v4.bd" FileRelPathName="ip/bd_scope_v4_xbar_0/bd_scope_v4_xbar_0.xci">
-          <Proxy FileSetName="bd_scope_v4_xbar_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="bd_scope_v4.bd" FileRelPathName="ip/bd_scope_v4_processing_system7_0_0/bd_scope_v4_processing_system7_0_0.xci">
-          <Proxy FileSetName="bd_scope_v4_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-      </File>
-      <File Path="$PGENDIR/sources_1/bd/bd_scope_v4/hdl/bd_scope_v4_wrapper.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.gen/sources_1/bd/bd_scope_v4/hdl/bd_scope_v4_wrapper.v"/>
-          <Attr Name="ImportTime" Val="1755160124"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -152,21 +110,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/s_axil4_wrapper.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/m_axis4_master.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/pkg_param.sv">
+      <File Path="$PSRCDIR/sources_1/timer.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -180,8 +124,75 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/timer.v">
+      <File Path="$PSRCDIR/sources_1/s_axil4_wrapper.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/o_scope/o_scope.bd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.srcs/sources_1/bd/o_scope/o_scope.bd"/>
+          <Attr Name="ImportTime" Val="1755482947"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_axi_dma_0_0/o_scope_axi_dma_0_0.xci">
+          <Proxy FileSetName="o_scope_axi_dma_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_processing_system7_0_0/o_scope_processing_system7_0_0.xci">
+          <Proxy FileSetName="o_scope_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_xbar_0/o_scope_xbar_0.xci">
+          <Proxy FileSetName="o_scope_xbar_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_adc_controller_wrapp_1_0/o_scope_adc_controller_wrapp_1_0.xci">
+          <Proxy FileSetName="o_scope_adc_controller_wrapp_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="o_scope.bd" FileRelPathName="ip/o_scope_rst_ps7_0_50M_0/o_scope_rst_ps7_0_50M_0.xci">
+          <Proxy FileSetName="o_scope_rst_ps7_0_50M_0"/>
+        </CompFileExtendedInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/o_scope/hdl/o_scope_wrapper.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.gen/sources_1/bd/o_scope/hdl/o_scope_wrapper.v"/>
+          <Attr Name="ImportTime" Val="1755480201"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/bd_scope_v4/bd_scope_v4.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.srcs/sources_1/bd/bd_scope_v4/bd_scope_v4.bd"/>
+          <Attr Name="ImportTime" Val="1755482950"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="bd_scope_v4.bd" FileRelPathName="ip/bd_scope_v4_processing_system7_0_0/bd_scope_v4_processing_system7_0_0.xci">
+          <Proxy FileSetName="bd_scope_v4_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="bd_scope_v4.bd" FileRelPathName="ip/bd_scope_v4_xbar_0/bd_scope_v4_xbar_0.xci">
+          <Proxy FileSetName="bd_scope_v4_xbar_0"/>
+        </CompFileExtendedInfo>
+      </File>
+      <File Path="$PGENDIR/sources_1/bd/bd_scope_v4/hdl/bd_scope_v4_wrapper.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../pj_spectrum_anal/pj_spectrum_anal.gen/sources_1/bd/bd_scope_v4/hdl/bd_scope_v4_wrapper.v"/>
+          <Attr Name="ImportTime" Val="1755160124"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/pkg_param.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -206,13 +217,6 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/tb_axis4_master.sv">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sim_1/tb_spi_master.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -220,8 +224,17 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sim_1/tb_axis4_master.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sim_1/if_axis4_master.sv">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -229,7 +242,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="tb_axis4_master"/>
+        <Option Name="TopModule" Val="tb_spi_master"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -284,9 +297,27 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="o_scope_adc_controller_wrapp_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/o_scope_adc_controller_wrapp_0_0" RelGenDir="$PGENDIR/o_scope_adc_controller_wrapp_0_0">
+    <FileSet Name="o_scope_axi_dma_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/o_scope_axi_dma_0_0" RelGenDir="$PGENDIR/o_scope_axi_dma_0_0">
       <Config>
-        <Option Name="TopModule" Val="o_scope_adc_controller_wrapp_0_0"/>
+        <Option Name="TopModule" Val="o_scope_axi_dma_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="o_scope_xbar_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/o_scope_xbar_0" RelGenDir="$PGENDIR/o_scope_xbar_0">
+      <Config>
+        <Option Name="TopModule" Val="o_scope_xbar_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="o_scope_rst_ps7_0_50M_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/o_scope_rst_ps7_0_50M_0" RelGenDir="$PGENDIR/o_scope_rst_ps7_0_50M_0">
+      <Config>
+        <Option Name="TopModule" Val="o_scope_rst_ps7_0_50M_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="o_scope_adc_controller_wrapp_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/o_scope_adc_controller_wrapp_1_0" RelGenDir="$PGENDIR/o_scope_adc_controller_wrapp_1_0">
+      <Config>
+        <Option Name="TopModule" Val="o_scope_adc_controller_wrapp_1_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -320,31 +351,27 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="bd_scope_v4_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="bd_scope_v4_processing_system7_0_0" Part="xc7z010clg400-1" ConstrsSet="bd_scope_v4_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/bd_scope_v4_processing_system7_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/bd_scope_v4_processing_system7_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/bd_scope_v4_processing_system7_0_0_synth_1">
+    <Run Id="bd_scope_v4_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="bd_scope_v4_processing_system7_0_0" Part="xc7z010clg400-1" ConstrsSet="bd_scope_v4_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/bd_scope_v4_processing_system7_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/bd_scope_v4_processing_system7_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="bd_scope_v4_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="bd_scope_v4_xbar_0" Part="xc7z010clg400-1" ConstrsSet="bd_scope_v4_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/bd_scope_v4_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/bd_scope_v4_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/bd_scope_v4_xbar_0_synth_1">
+    <Run Id="bd_scope_v4_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="bd_scope_v4_xbar_0" Part="xc7z010clg400-1" ConstrsSet="bd_scope_v4_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/bd_scope_v4_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/bd_scope_v4_xbar_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
     <Run Id="o_scope_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_processing_system7_0_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_processing_system7_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_processing_system7_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_processing_system7_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -352,7 +379,37 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="o_scope_adc_controller_wrapp_0_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_adc_controller_wrapp_0_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_adc_controller_wrapp_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_adc_controller_wrapp_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_0_0_synth_1">
+    <Run Id="o_scope_axi_dma_0_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_axi_dma_0_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_axi_dma_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_axi_dma_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_axi_dma_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_axi_dma_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_xbar_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_xbar_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_xbar_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_xbar_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_xbar_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_rst_ps7_0_50M_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_rst_ps7_0_50M_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_rst_ps7_0_50M_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_rst_ps7_0_50M_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_rst_ps7_0_50M_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_rst_ps7_0_50M_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_adc_controller_wrapp_1_0_synth_1" Type="Ft3:Synth" SrcSet="o_scope_adc_controller_wrapp_1_0" Part="xc7z010clg400-1" ConstrsSet="o_scope_adc_controller_wrapp_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/o_scope_adc_controller_wrapp_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_1_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -418,9 +475,7 @@
     </Run>
     <Run Id="o_scope_processing_system7_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_processing_system7_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_processing_system7_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_processing_system7_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_processing_system7_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -435,7 +490,58 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="o_scope_adc_controller_wrapp_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_adc_controller_wrapp_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_adc_controller_wrapp_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_0_0_impl_1">
+    <Run Id="o_scope_axi_dma_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_axi_dma_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_axi_dma_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_axi_dma_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_axi_dma_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_xbar_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_xbar_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_xbar_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_xbar_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_rst_ps7_0_50M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_rst_ps7_0_50M_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_rst_ps7_0_50M_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_rst_ps7_0_50M_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_rst_ps7_0_50M_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="o_scope_adc_controller_wrapp_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="o_scope_adc_controller_wrapp_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="o_scope_adc_controller_wrapp_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/o_scope_adc_controller_wrapp_1_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
           <Desc>Default settings for Implementation.</Desc>

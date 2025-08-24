@@ -65,7 +65,7 @@
 #define INTC_DIST_BASE_ADDR	XPAR_SCUGIC_0_DIST_BASEADDR
 #define TIMER_IRPT_INTR		XPAR_SCUTIMER_INTR
 
-#define RESET_RX_CNTR_LIMIT	400
+#define RESET_RX_CNTR_LIMIT	50000
 
 void tcp_fasttmr(void);
 void tcp_slowtmr(void);
@@ -77,8 +77,9 @@ static int ResetRxCntr = 0;
 extern struct netif server_netif;
 #endif
 
-volatile int TcpFastTmrFlag = 0;
-volatile int TcpSlowTmrFlag = 0;
+//volatile int TcpFastTmrFlag = 0;
+//volatile int TcpSlowTmrFlag = 0;
+volatile int Timeout = 0;
 
 #if LWIP_DHCP==1
 volatile int dhcp_timoutcntr = 24;
@@ -89,33 +90,34 @@ void dhcp_coarse_tmr();
 void
 timer_callback(XScuTimer * TimerInstance)
 {
+	Timeout = 1;
 	/* we need to call tcp_fasttmr & tcp_slowtmr at intervals specified
 	 * by lwIP. It is not important that the timing is absoluetly accurate.
 	 */
-	static int odd = 1;
-#if LWIP_DHCP==1
-    static int dhcp_timer = 0;
-#endif
-	 TcpFastTmrFlag = 1;
-
-	odd = !odd;
+//	static int odd = 1;
+//#if LWIP_DHCP==1
+//    static int dhcp_timer = 0;
+//#endif
+//	 TcpFastTmrFlag = 1;
+//
+//	odd = !odd;
 #ifndef USE_SOFTETH_ON_ZYNQ
 	ResetRxCntr++;
 #endif
-	if (odd) {
-#if LWIP_DHCP==1
-		dhcp_timer++;
-		dhcp_timoutcntr--;
-#endif
-		TcpSlowTmrFlag = 1;
-#if LWIP_DHCP==1
-		dhcp_fine_tmr();
-		if (dhcp_timer >= 120) {
-			dhcp_coarse_tmr();
-			dhcp_timer = 0;
-		}
-#endif
-	}
+//	if (odd) {
+//#if LWIP_DHCP==1
+//		dhcp_timer++;
+//		dhcp_timoutcntr--;
+//#endif
+//		TcpSlowTmrFlag = 1;
+//#if LWIP_DHCP==1
+//		dhcp_fine_tmr();
+//		if (dhcp_timer >= 120) {
+//			dhcp_coarse_tmr();
+//			dhcp_timer = 0;
+//		}
+//#endif
+//	}
 
 	/* For providing an SW alternative for the SI #692601. Under heavy
 	 * Rx traffic if at some point the Rx path becomes unresponsive, the
@@ -162,7 +164,7 @@ void platform_setup_timer(void)
 	/*
 	 * Set for 250 milli seconds timeout.
 	 */
-	TimerLoadValue = XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ / 8;
+	TimerLoadValue = XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ / 1024;
 
 	XScuTimer_LoadTimer(&TimerInstance, TimerLoadValue);
 	return;

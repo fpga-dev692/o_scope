@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3AC537E412FE1923",
+      "boundary_crc": "0x8F113845190C701",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../o_scope.gen/sources_1/bd/o_scope",
       "name": "o_scope",
@@ -28,7 +28,7 @@
         "m01_couplers": {}
       },
       "rst_ps7_0_50M": "",
-      "adc_controller_wrapp_0": ""
+      "adc_controller_wrapp_1": ""
     },
     "interface_ports": {
       "DDR": {
@@ -202,9 +202,6 @@
     },
     "ports": {
       "cs": {
-        "direction": "O"
-      },
-      "led_err": {
         "direction": "O"
       },
       "miso": {
@@ -1646,6 +1643,15 @@
           "PCW_S_AXI_HP0_ID_WIDTH": {
             "value": "6"
           },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
+          },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
           },
@@ -2555,11 +2561,11 @@
         "xci_path": "ip\\o_scope_rst_ps7_0_50M_0\\o_scope_rst_ps7_0_50M_0.xci",
         "inst_hier_path": "rst_ps7_0_50M"
       },
-      "adc_controller_wrapp_0": {
+      "adc_controller_wrapp_1": {
         "vlnv": "xilinx.com:module_ref:adc_controller_wrapper:1.0",
-        "xci_name": "o_scope_adc_controller_wrapp_0_0",
-        "xci_path": "ip\\o_scope_adc_controller_wrapp_0_0\\o_scope_adc_controller_wrapp_0_0.xci",
-        "inst_hier_path": "adc_controller_wrapp_0",
+        "xci_name": "o_scope_adc_controller_wrapp_1_0",
+        "xci_path": "ip\\o_scope_adc_controller_wrapp_1_0\\o_scope_adc_controller_wrapp_1_0.xci",
+        "inst_hier_path": "adc_controller_wrapp_1",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "adc_controller_wrapper",
@@ -2905,17 +2911,14 @@
           },
           "sclk": {
             "direction": "O"
-          },
-          "led_err": {
-            "direction": "O"
           }
         }
       }
     },
     "interface_nets": {
-      "adc_controller_wrapp_0_m_axis": {
+      "adc_controller_wrapp_1_m_axis": {
         "interface_ports": [
-          "adc_controller_wrapp_0/m_axis",
+          "adc_controller_wrapp_1/m_axis",
           "axi_dma_0/S_AXIS_S2MM"
         ]
       },
@@ -2958,39 +2961,33 @@
       "ps7_0_axi_periph_M01_AXI": {
         "interface_ports": [
           "ps7_0_axi_periph/M01_AXI",
-          "adc_controller_wrapp_0/s_axi"
+          "adc_controller_wrapp_1/s_axi"
         ]
       }
     },
     "nets": {
+      "adc_controller_wrapp_1_cs": {
+        "ports": [
+          "adc_controller_wrapp_1/cs",
+          "cs"
+        ]
+      },
+      "adc_controller_wrapp_1_sclk": {
+        "ports": [
+          "adc_controller_wrapp_1/sclk",
+          "sclk"
+        ]
+      },
       "axi_dma_0_s2mm_introut": {
         "ports": [
           "axi_dma_0/s2mm_introut",
           "processing_system7_0/IRQ_F2P"
         ]
       },
-      "axis4_master_0_cs": {
-        "ports": [
-          "adc_controller_wrapp_0/cs",
-          "cs"
-        ]
-      },
-      "axis4_master_0_led_err": {
-        "ports": [
-          "adc_controller_wrapp_0/led_err",
-          "led_err"
-        ]
-      },
-      "axis4_master_0_sclk": {
-        "ports": [
-          "adc_controller_wrapp_0/sclk",
-          "sclk"
-        ]
-      },
-      "miso_0_1": {
+      "miso_1": {
         "ports": [
           "miso",
-          "adc_controller_wrapp_0/miso"
+          "adc_controller_wrapp_1/miso"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -3008,8 +3005,8 @@
           "processing_system7_0/M_AXI_GP0_ACLK",
           "processing_system7_0/S_AXI_HP0_ACLK",
           "ps7_0_axi_periph/M01_ACLK",
-          "adc_controller_wrapp_0/s_axi_aclk",
-          "adc_controller_wrapp_0/m_axis_aclk"
+          "adc_controller_wrapp_1/s_axi_aclk",
+          "adc_controller_wrapp_1/m_axis_aclk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -3029,8 +3026,8 @@
           "axi_mem_intercon/M00_ARESETN",
           "axi_mem_intercon/ARESETN",
           "ps7_0_axi_periph/M01_ARESETN",
-          "adc_controller_wrapp_0/s_axi_aresetn",
-          "adc_controller_wrapp_0/m_axis_aresetn"
+          "adc_controller_wrapp_1/s_axi_aresetn",
+          "adc_controller_wrapp_1/m_axis_aresetn"
         ]
       }
     },
@@ -3052,10 +3049,10 @@
         "address_spaces": {
           "Data": {
             "segments": {
-              "SEG_adc_controller_wrapp_0_reg0": {
-                "address_block": "/adc_controller_wrapp_0/s_axi/reg0",
-                "offset": "0x60000000",
-                "range": "512M"
+              "SEG_adc_controller_wrapp_1_reg0": {
+                "address_block": "/adc_controller_wrapp_1/s_axi/reg0",
+                "offset": "0x40000000",
+                "range": "4K"
               },
               "SEG_axi_dma_0_Reg": {
                 "address_block": "/axi_dma_0/S_AXI_LITE/Reg",

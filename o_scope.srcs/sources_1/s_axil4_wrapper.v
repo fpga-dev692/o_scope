@@ -5,8 +5,8 @@ module adc_controller_wrapper #(
     parameter S_AXIL_DATA_WIDTH = 32,
     parameter S_AXIL_ADDR_WIDTH = 3,
     parameter M_AXIS_DATA_WIDTH = 16,
-    parameter M_AXIS_BURST_WIDTH = 32,
-    parameter SPI_SCLK_PSC_WIDTH = 32
+    parameter M_AXIS_BURST_WIDTH = 16,
+    parameter SPI_SCLK_PSC_WIDTH = 16
 )(
     /* AXIL4 slave I/F */
     input s_axi_aclk,
@@ -46,9 +46,7 @@ module adc_controller_wrapper #(
     /* SPI master I/F */
     input miso,
     output cs,
-    output sclk,
-
-    output led_err
+    output sclk
     );
 
     s_axil4 #(
@@ -88,8 +86,7 @@ module adc_controller_wrapper #(
 
         .miso           (miso),
         .cs             (cs),
-        .sclk           (sclk),
-        .led_err        (led_err)
+        .sclk           (sclk)
     );
 
 endmodule

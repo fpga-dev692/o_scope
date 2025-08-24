@@ -3060,9 +3060,6 @@
           },
           "sclk": {
             "direction": "O"
-          },
-          "led_err": {
-            "direction": "O"
           }
         }
       }
@@ -3168,7 +3165,6 @@
       },
       "axis4_master_0_led_err": {
         "ports": [
-          "adc_controller_wrapp_0/led_err",
           "led_err",
           "system_ila_0/probe1"
         ],

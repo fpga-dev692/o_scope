@@ -2,11 +2,11 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Wed Jun 25 11:10:27 2025
+// Date        : Mon Jul 28 16:49:18 2025
 // Host        : DESKTOP-50JA6HK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top bd_scope_v4_auto_pc_0 -prefix
-//               bd_scope_v4_auto_pc_0_ design_2_auto_pc_1_stub.v
-// Design      : design_2_auto_pc_1
+//               bd_scope_v4_auto_pc_0_ design_3_auto_pc_0_stub.v
+// Design      : design_3_auto_pc_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------

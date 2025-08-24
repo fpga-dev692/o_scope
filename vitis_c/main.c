@@ -47,8 +47,9 @@
 extern volatile int dhcp_timoutcntr;
 #endif
 
-extern volatile int TcpFastTmrFlag;
-extern volatile int TcpSlowTmrFlag;
+//extern volatile int TcpFastTmrFlag;
+//extern volatile int TcpSlowTmrFlag;
+extern volatile int Timeout;
 
 struct netif server_netif;
 
@@ -61,9 +62,6 @@ struct netif server_netif;
 #define BURST_SIZE 		(4096 * 2)
 #define BUFFER_STAGE	2
 #define SPI_PSC			10
-
-extern volatile bool RxDone;
-extern volatile bool Error;
 
 __attribute__((aligned(64)))
 static u8 RxBufferPtr[BUFFER_STAGE][BURST_SIZE];
@@ -80,7 +78,7 @@ int main(void)
 
 	init_platform();
 
-	xil_printf("\r\n\r\n");
+	xil_printf("\r\n");
 	xil_printf("-----lwIP RAW Mode UDP Client Application-----\r\n");
 
 	/* initialize lwIP */
@@ -132,18 +130,25 @@ int main(void)
 	/* start the udp transmission*/
 	start_udp();
 
-	u32 burst_size = BURST_SIZE / 2 - 1;
-	u32 spi_psc = SPI_PSC - 1;
-
-	Xil_Out32(XPAR_ADC_CONTROLLER_WRAPP_0_BASEADDR, burst_size);
-	burst_size = Xil_In32(XPAR_ADC_CONTROLLER_WRAPP_0_BASEADDR);
-	xil_printf("Burst size (unit: 2-byte) set to %d\r\n", burst_size + 1);
-
-	Xil_Out32(XPAR_ADC_CONTROLLER_WRAPP_0_BASEADDR + 4, spi_psc);
-	spi_psc = Xil_In32(XPAR_ADC_CONTROLLER_WRAPP_0_BASEADDR + 4);
-	xil_printf("SPI Prescaler set to %d\r\n", spi_psc + 1);
-
 /////////////////////////////////////////////////////////////////////////////////////////
+
+	xil_printf("--- ADC controller register settings --- \r\n");
+
+	u32 ctrl_reg[2] = {0,};
+
+	u16 burst_size = BURST_SIZE / 2 - 1;
+	u16 spi_psc = SPI_PSC - 1;
+
+	ctrl_reg[1] = ((u32)spi_psc << 16) | (u32)burst_size;
+	ctrl_reg[0] |= (1 << 0);	// enable = 1
+
+	Xil_Out32(XPAR_ADC_CONTROLLER_WRAPP_1_BASEADDR + 4, ctrl_reg[1]);
+	ctrl_reg[1] = Xil_In32(XPAR_ADC_CONTROLLER_WRAPP_1_BASEADDR + 4);
+	xil_printf("reg 1 set to %08x\r\n", ctrl_reg[1]);
+
+	Xil_Out32(XPAR_ADC_CONTROLLER_WRAPP_1_BASEADDR, ctrl_reg[0]);
+	ctrl_reg[0] = Xil_In32(XPAR_ADC_CONTROLLER_WRAPP_1_BASEADDR);
+	xil_printf("reg 0 set to %08x\r\n", ctrl_reg[0]);
 
 	xil_printf("--- DMA & Interrupt settings --- \r\n");
 
@@ -155,26 +160,29 @@ int main(void)
 
 	while(1)
 	{
-		usleep(1000);
-//		sleep(1);
+//		usleep(1000);	// blocking
 
-		xemacif_input(netif);
-		if(Error)
+		if(Timeout)
 		{
-			xil_printf("Receive error interrupt. \r\n");
-			return XST_FAILURE;
-		}
-		if(RxDone)
-		{
-			Xil_DCacheInvalidateRange((INTPTR)RxBufferPtr[CurBuff], BURST_SIZE);
-			udp_packet_send((const void *)RxBufferPtr[CurBuff], BURST_SIZE);
+			xemacif_input(netif);
+			if(Error)
+			{
+				xil_printf("Receive error interrupt. \r\n");
+				return XST_FAILURE;
+			}
+			if(RxDone)
+			{
+				Xil_DCacheInvalidateRange((INTPTR)RxBufferPtr[CurBuff], BURST_SIZE);
+				udp_packet_send((const void *)RxBufferPtr[CurBuff], BURST_SIZE);
 
-			CurBuff ^= 1;
+				CurBuff ^= 1;
 
-			Xil_DCacheInvalidateRange((INTPTR)RxBufferPtr[CurBuff], BURST_SIZE);
-			XAxiDma_SimpleTransfer(&AxiDma, (UINTPTR)RxBufferPtr[CurBuff], BURST_SIZE, XAXIDMA_DEVICE_TO_DMA);
+				Xil_DCacheInvalidateRange((INTPTR)RxBufferPtr[CurBuff], BURST_SIZE);
+				XAxiDma_SimpleTransfer(&AxiDma, (UINTPTR)RxBufferPtr[CurBuff], BURST_SIZE, XAXIDMA_DEVICE_TO_DMA);
 
-			RxDone = false;
+				RxDone = false;
+			}
+			Timeout = 0;
 		}
 	}
 

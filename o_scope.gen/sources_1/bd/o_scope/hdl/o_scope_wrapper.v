@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Mon Aug 18 10:23:21 2025
+//Date        : Thu Aug 21 10:14:44 2025
 //Host        : DESKTOP-50JA6HK running 64-bit major release  (build 9200)
 //Command     : generate_target o_scope_wrapper.bd
 //Design      : o_scope_wrapper
@@ -33,7 +33,6 @@ module o_scope_wrapper
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     cs,
-    led_err,
     miso,
     sclk);
   inout [14:0]DDR_addr;
@@ -58,7 +57,6 @@ module o_scope_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output cs;
-  output led_err;
   input miso;
   output sclk;
 
@@ -84,7 +82,6 @@ module o_scope_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire cs;
-  wire led_err;
   wire miso;
   wire sclk;
 
@@ -111,7 +108,6 @@ module o_scope_wrapper
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .cs(cs),
-        .led_err(led_err),
         .miso(miso),
         .sclk(sclk));
 endmodule

@@ -23,11 +23,12 @@ module m_axis4_master #(
     // output reg [USER_WIDTH-1:0] tuser,
     input [BURST_WIDTH-1:0] burst_size,
     input [S_PSC_WIDTH-1:0] sclk_psc,
-
+    input adc_en,
     input miso,
     output cs,
     output sclk,
-    output led_err
+    output header_err,
+    output overclock_err
 );
 
     assign tkeep = {KEEP_WIDTH{1'b1}};
@@ -38,9 +39,6 @@ module m_axis4_master #(
     localparam PAYLOAD_WIDTH = DATA_WIDTH - HEAD_WIDTH;
     wire d_valid;
     wire [PAYLOAD_WIDTH-1:0] o_data;
-
-    wire header_error;
-    assign led_err = ~header_error;
 
     always @(posedge aclk) begin
         if(!aresetn) begin
@@ -71,14 +69,15 @@ module m_axis4_master #(
     ) spi_master_inst(
         .clk    (aclk),
         .rstn   (aresetn),
-        .enable (tready),
+        .enable (tready && adc_en),
         .sclk_psc(sclk_psc),
         .miso   (miso),
         .cs     (cs),
         .sclk   (sclk),
         .o_data (o_data),
         .d_valid(d_valid),
-        .header_error(header_error)
+        .header_error(header_err),
+        .overclocked(overclock_err)
     );
 
 endmodule

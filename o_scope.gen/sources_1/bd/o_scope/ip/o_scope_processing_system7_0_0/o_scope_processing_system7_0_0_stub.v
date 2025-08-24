@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Mon Aug 18 10:19:11 2025
+// Date        : Wed Aug 20 17:45:44 2025
 // Host        : DESKTOP-50JA6HK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Users/Admin/Sync/Portfolio/pj_spectrum_anal/pj_spectrum_anal.gen/sources_1/bd/o_scope/ip/o_scope_processing_system7_0_0/o_scope_processing_system7_0_0_stub.v
+//               c:/Users/Admin/Sync/Portfolio/o_scope/o_scope.gen/sources_1/bd/o_scope/ip/o_scope_processing_system7_0_0/o_scope_processing_system7_0_0_stub.v
 // Design      : o_scope_processing_system7_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

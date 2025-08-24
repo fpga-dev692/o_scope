@@ -1,7 +1,7 @@
 #include "axi_dma.h"
 
-volatile bool RxDone;
-volatile bool Error;
+volatile bool RxDone = false;
+volatile bool Error = false;
 
 void RxIntrHandler(void *Callback)
 {
